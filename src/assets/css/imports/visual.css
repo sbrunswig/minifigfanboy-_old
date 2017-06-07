@@ -1,0 +1,77 @@
+/* ------------------------------------ *\
+	#VISUAL
+\* ------------------------------------ */
+
+/**
+ * Visual formatting properties
+ *
+ * Reference:    https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Visual_formatting_model
+ * Author:       Scott Brunswig
+ */
+
+
+/**
+ * Cursor
+ *
+ * Naming rule:    cur-[d|p]
+ * Reference: 	   https://developer.mozilla.org/en-US/docs/Web/CSS/cursor
+ */
+.cur-d    { cursor: default; }
+.cur-m    { cursor: move; }
+
+/* Cursor hover states */
+.cur-p-hv:hover    { cursor: pointer; }
+
+
+/**
+ * Display
+ *
+ * Naming rule:    d-[b|f|n]
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/display
+ */
+.d-b    { display: block; }
+.d-f    { display: flex; }
+.d-ib	{ display: inline-block; }
+.d-n    { display: none; }
+
+
+/**
+ * Overflow
+ *
+ * Naming rule:    [ov|ovy]-[a|h|s|v]
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/overflow
+ */
+.ov-h     { overflow: hidden; }
+.ovx-a    { overflow-x: auto; }
+.ovy-a    { overflow-y: auto; }
+.ovy-h    { overflow-y: hidden; }
+
+
+/**
+ * Pointer events
+ *
+ * Naming rule:    pe-[n]
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
+ */
+.pe-n    { pointer-events: none; }
+
+
+/**
+ * Position
+ *
+ * Naming rule:    pos-[a|r|s|f]
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/position
+ */
+.pos-a    { position: absolute; }
+.pos-f    { position: fixed; }
+.pos-r    { position: relative; }
+
+
+/**
+ * Visibility
+ *
+ * Naming rule:    v-[h|v]
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/visibility
+ */
+.v-h    { visibility: hidden; }
+.v-v    { visibility: visible; }

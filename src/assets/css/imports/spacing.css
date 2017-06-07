@@ -1,0 +1,90 @@
+/* ------------------------------------ *\
+	#SPACING
+\* ------------------------------------ */
+
+/**
+ * Margin and padding properties
+
+ * Reference:       https://developer.mozilla.org/en-US/docs/Web/CSS/margin or padding
+ * Author:          Scott Brunswig and Manusha
+*/
+
+
+:root {
+    --spacing-unit-micro:     3px;
+    --spacing-unit-tiny:      6px;
+    --spacing-unit-small:     12px;
+    --spacing-unit:           24px;
+    --spacing-unit-medium:    36px;
+    --spacing-unit-large:     48px;
+}
+
+
+/**
+ * Margin
+ *
+ * Naming rule:    m(t|r|b|l|h|v)(-a|---|--|-|+|++|number)
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/margin
+ */
+
+/** Tiny margins */
+.m--     { margin: var(--spacing-unit-tiny); }
+.mt--    { margin-top: var(--spacing-unit-tiny); }
+.mr--    { margin-right: var(--spacing-unit-tiny); }
+.mb--    { margin-bottom: var(--spacing-unit-tiny); }
+.ml--    { margin-left: var(--spacing-unit-tiny); }
+.mh--    { margin-left: var(--spacing-unit-tiny); margin-right: var(--spacing-unit-tiny); }
+.mv--    { margin-bottom: var(--spacing-unit-tiny); margin-top: var(--spacing-unit-tiny); }
+
+/** Small margins */
+.m-     { margin: var(--spacing-unit-small); }
+.mt-    { margin-top: var(--spacing-unit-small); }
+.mr-    { margin-right: var(--spacing-unit-small); }
+.mb-    { margin-bottom: var(--spacing-unit-small); }
+.ml-    { margin-left: var(--spacing-unit-small); }
+.mh-    { margin-left: var(--spacing-unit-small); margin-right: var(--spacing-unit-small); }
+.mv-    { margin-bottom: var(--spacing-unit-small); margin-top: var(--spacing-unit-small); }
+
+/** Default margins */
+.m     { margin: var(--spacing-unit); }
+.mt    { margin-top: var(--spacing-unit); }
+.mr    { margin-right: var(--spacing-unit); }
+.mb    { margin-bottom: var(--spacing-unit); }
+.ml    { margin-left: var(--spacing-unit); }
+.mh    { margin-left: var(--spacing-unit); margin-right: var(--spacing-unit); }
+.mv    { margin-bottom: var(--spacing-unit); margin-top: var(--spacing-unit); }
+
+
+/**
+ * Padding
+ *
+ * Naming rule:    p(t|r|b|l|h|v)(---|--|-|+|++|number)
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/padding
+ */
+
+/** Tiny paddings */
+.p--     { padding: var(--spacing-unit-tiny); }
+.pt--    { padding-top: var(--spacing-unit-tiny); }
+.pr--    { padding-right: var(--spacing-unit-tiny); }
+.pb--    { padding-bottom: var(--spacing-unit-tiny); }
+.pl--    { padding-left: var(--spacing-unit-tiny); }
+.ph--    { padding-left: var(--spacing-unit-tiny); padding-right: var(--spacing-unit-tiny); }
+.pv--    { padding-bottom: var(--spacing-unit-tiny); padding-top: var(--spacing-unit-tiny); }
+
+/** Small paddings */
+.p-     { padding: var(--spacing-unit-small); }
+.pt-    { padding-top: var(--spacing-unit-small); }
+.pr-    { padding-right: var(--spacing-unit-small); }
+.pb-    { padding-bottom: var(--spacing-unit-small); }
+.pl-    { padding-left: var(--spacing-unit-small); }
+.ph-    { padding-left: var(--spacing-unit-small); padding-right: var(--spacing-unit-small); }
+.pv-    { padding-bottom: var(--spacing-unit-small); padding-top: var(--spacing-unit-small); }
+
+/** Default paddings */
+.p     { padding: var(--spacing-unit); }
+.pt    { padding-top: var(--spacing-unit); }
+.pr    { padding-right: var(--spacing-unit); }
+.pb    { padding-bottom: var(--spacing-unit); }
+.pl    { padding-left: var(--spacing-unit); }
+.ph    { padding-left: var(--spacing-unit); padding-right: var(--spacing-unit); }
+.pv    { padding-bottom: var(--spacing-unit); padding-top: var(--spacing-unit); }

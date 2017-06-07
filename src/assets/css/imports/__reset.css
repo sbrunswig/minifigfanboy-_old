@@ -1,0 +1,24 @@
+/* ------------------------------------ *\
+	#RESET
+\* ------------------------------------ */
+
+/**
+ * As well as using normalize.css, it is often advantageous to remove all
+ * margins and padding from certain elements
+ *
+ * Author: Scott Brunswig
+ */
+
+
+blockquote, button,
+dd, dl
+h1, h2, h3, h4, h5, h6, hr,
+fieldset, figure, form,
+legend,
+ol,
+p, pre,
+table, td, th,
+ul {
+	margin: 0;
+	padding: 0;
+}

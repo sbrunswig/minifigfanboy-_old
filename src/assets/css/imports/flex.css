@@ -1,0 +1,122 @@
+/* ------------------------------------ *\
+	#FLEX
+\* ------------------------------------ */
+
+/**
+ * Flex display properties
+ *
+ * Reference:    https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+ * Author:       Scott Brunswig
+ */
+
+
+/**
+ * Align items
+ *
+ * Default is stretch to fill the container, align items in the cross axis of
+ * the current line of the flex container
+ *
+ * Naming rule:    ai-[b|c|fe|fs]
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/align-items
+ */
+.ai-c     { align-items: center; }
+.ai-fe    { align-items: flex-end; }
+.ai-fs    { align-items: flex-start; }
+
+
+/**
+ * Align self
+ *
+ * Aligns flex items of the current flex line overriding the align-items value
+ *
+ * Naming rule:    as-[b|c|fe|fs]
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/align-self
+ */
+.as-c      { align-self: center; }
+.as-fe     { align-self: flex-end; }
+
+
+/**
+ * Flex
+ *
+ * Shorthand for flex-grow, flex-shrink and flex-basis combined.
+ * Default is 0 1 auto;
+ *
+ * Naming rule:    fx-[value]
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+*/
+.fx-1    { flex: 1; }
+
+
+/**
+ * Flex basis
+ *
+ * Default is auto, defines the default size of an element before the remaining
+ * space is distributed.
+ *
+ * Naming rule:    fxd-[c|cr|rr]
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis
+*/
+.fxb-0    { flex-basis: 0; }
+
+
+/**
+ * Flex direction
+ *
+ * Default is row
+ *
+ * Naming rule:    fxd-[c|cr|rr]
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction
+*/
+.fxd-c    { flex-direction: column; }
+
+
+/**
+ * Flex grow
+ *
+ * Default is to 0. This defines the ability for a flex item to grow if necessary
+ * It accepts a unitless value that serves as a proportion of items on one line
+ *
+ * Naming rule:    fxg-[value]
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow
+ */
+.fxg-1    { flex-grow: 1; }
+.fxg-2    { flex-grow: 2; }
+
+
+/**
+ * Flex shrink
+ *
+ * Default is 1, IE10 default is 0
+ * This specifies the flex shrink factor of a flex item
+ *
+ * Naming rule:    fxsh-[value]
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink
+ */
+.fxsh-0       { flex-shrink: 0; }
+.fxsh-1-ie    { -ms-flex-negative: 1; }
+
+
+/**
+ * Flex wrap
+ *
+ * Default flex items will all try to fit on one line (nowrap)
+ *
+ * Naming rule:    fxw-[n]
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink
+ */
+.fxw-w    { flex-wrap: wrap; }
+
+
+/**
+ * Justify content
+ *
+ * Default is flext-start, align items along the main axis of the current
+ * line of the flex container
+ *
+ * Naming rule:    jc-[c|fe|sa|sb]
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content
+ */
+.jc-c     { justify-content: center; }
+.jc-fe    { justify-content: flex-end; }
+.jc-sb    { justify-content: space-between; }

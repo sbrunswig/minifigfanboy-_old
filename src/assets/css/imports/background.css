@@ -1,0 +1,25 @@
+/* ------------------------------------ *\
+	#BACKGROUND
+\* ------------------------------------ */
+
+/**
+ * Background properties
+ *
+ * Reference:    https://developer.mozilla.org/en-US/docs/Web/CSS/background
+ * Author:       Scott Brunswig
+ */
+
+
+/**
+ * Background color
+ *
+ * Naming rule:    bgc-[color](-hv)
+ * Sub-order:      light to dark
+ * Reference:      https://developer.mozilla.org/en-US/docs/Web/CSS/background-color
+ */
+
+/* Yellow */
+.bgc-yellow500	   { background-color: rgb(255,235,59); }
+
+/* Transparent */
+.bgc-t        { background-color: transparent; }

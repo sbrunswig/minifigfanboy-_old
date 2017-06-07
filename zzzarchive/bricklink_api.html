@@ -1,0 +1,81 @@
+<template>
+    <div style="width:1400px; margin:0 auto;display:flex;flex-wrap:wrap;">
+        <a hrf="" v-on:click.prevent="showBat()">show batman</a>        
+        <div>Number: {{ fig.no }}</div>
+        <minifig v-for="minifig in orderedMinifigs" v-bind:minifig="minifig"></minifig>
+    </div>   
+</template>
+
+
+<script>
+    import _ from 'lodash'
+    import Minifig from './Minifig.vue'
+
+    export default {
+        components: { Minifig },    
+        created () {
+            this.$store.dispatch('fetchMinifigs', {
+                count: 5
+            });
+            this.getQuote();
+        },  
+        computed: {
+            orderedMinifigs () {
+                return _
+                .chain(this.$store.state.minifigs)
+                .sortBy(minifig => minifig.no)
+                .value()
+            }
+        },
+        data () {
+            return {
+                fig: {}
+            }
+        },
+        methods: {
+            showBat() {
+                this.$store.dispatch('fetchBATMinifigs')
+            },
+            generateRandomString() {
+                var text = "";
+                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+                for( var i=0; i < 10; i++ )
+                    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+                return text;
+            },     
+            getQuote() {
+                let SIGN_METHOD = 'GET';
+                let SIGN_TYPE = 'HMAC-SHA1';
+                let CONSUMER_KEY = '34D87D0E82ED41C9A4C1BAEF3E4AACC9';
+                let CONSUMER_SECRET = '07FCBBF056164A38BCAE8C970DCC76B7';
+                let VERSION = '1.0';
+                let URL_API = 'https://api.bricklink.com/api/store/v1';
+                let TOKEN = '52D08C008E224CA3831BE848CDAAA274';
+                let TOKEN_SECRET = '1BD106FF8F4048FC8917B15FE556A9FB';
+                let secretstring = CONSUMER_SECRET + '&' + TOKEN_SECRET;
+                let acttime = Math.floor(Date.now() / 1000);
+                let nonce = this.generateRandomString();
+                let urlkey = encodeURIComponent(URL_API + '/items/MINIFIG/sh003/price') + '&' + encodeURIComponent('guide_type=sold&oauth_consumer_key=' + CONSUMER_KEY + '&oauth_nonce=' + nonce + '&oauth_signature_method=' + SIGN_TYPE + '&oauth_timestamp=' + acttime + '&oauth_token=' + TOKEN + '&oauth_version=1.0');
+                let basestring= SIGN_METHOD + '&' + urlkey;
+                let hash = CryptoJS.HmacSHA1(basestring, secretstring);
+                let sign = hash.toString(CryptoJS.enc.Base64);
+
+                urlkey = URL_API + '/items/MINIFIG/sh003/price?guide_type=sold&Authorization={"oauth_signature"%3A"' + sign + '"%2C"oauth_consumer_key"%3A"' + CONSUMER_KEY + '"%2C"oauth_nonce"%3A"' + nonce + '"%2C"oauth_signature_method"%3A"' + SIGN_TYPE + '"%2C"oauth_timestamp"%3A"' + acttime + '"%2C"oauth_token"%3A"' + TOKEN + '"%2C"oauth_version"%3A"1.0"}';
+
+                console.log(urlkey);
+
+                axios.get(urlkey)
+                .then(function (response) {
+                    this.fig.no = response.item.no;
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });              
+
+            }           
+        }
+    }
+</script>
