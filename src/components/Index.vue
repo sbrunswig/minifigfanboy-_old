@@ -25,33 +25,41 @@
                 <div style="width:10%;text-align: right;font-weight:500;color: rgba(117,117,117,1);transition: .15s opacity;">sold</div>
             </div>   
         </div>
+
+        <!-- each row -->
         <minifig v-for="minifig in orderedMinifigs" v-bind:minifig="minifig"></minifig>
+
+        <!-- loader -->
         <div v-if="isLoading" style="position:absolute;top:0;left:0;bottom:0;right:0;background:rgba(0,0,0,0.8);"><div style="margin:auto;width:100px;color:white;">Loading</div></div>
 
-
-
+        <!-- side panel -->
         <div v-show="isOpen" style="background:#fff;position:fixed;right:0;z-index:2;top:0;bottom:0;width:290px;overflow-y:auto;transition:.15s all;box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);">
             <a href="" v-on:click.stop.prevent="hidePanel()">X</a>
             <div><img v-bind:src="currentMinifig.image_url" style="width:232px;padding:21px"></div>
             <div v-if="currentMinifig.subset">
+                <div>SUBSETS</div>
                 <ul v-for="subset in currentMinifig.subset" style="margin-left:12px">
                     <li v-for="part in subset.entries">{{part.item.name}}</li>
                 </ul>           
             </div>
             <div v-if="currentMinifig.superset">
+                <div>SUPERSETS</div>
                 <ul v-for="superset in currentMinifig.superset.entries" style="margin-left:12px">
                     <li>{{superset.item.name}}</li>
                 </ul>            
             </div>
             <div v-if="currentMinifig.price_stock">
+                <div>CURRENT PRICE</div>
                 <ul v-for="price in currentMinifig.price_stock.price_detail" style="margin-left:12px">
                     <li>{{ price.quantity }} {{ price.unit_price }}</li>
                 </ul>
             </div>            
             <div v-if="currentMinifig.price_sold">
+                <div>SOLD PRICE</div>
                 <ul v-for="price in currentMinifig.price_sold.price_detail" style="margin-left:12px">
                     <li>{{ price.quantity }} {{ price.unit_price }} {{ price.date_ordered }} {{ price.seller_country_code }}</li>
-                </ul>       
+                </ul>  
+                <bar-chart v-bind:figdata='currentMinifig'></bar-chart>
             </div>
         </div> 
 
@@ -59,11 +67,12 @@
 </template>
 
 <script>
-    import _ from 'lodash'
-    import Minifig from './Minifig.vue'
+    import _ from 'lodash';
+    import Minifig from './Minifig.vue';
+    import BarChart from './BarChart.vue';
 
     export default {
-        components: { Minifig },    
+        components: { Minifig, BarChart },          
         created () {
             this.$store.dispatch('fetchSPDMinifigs', {
                 count: 500

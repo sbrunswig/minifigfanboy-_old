@@ -19,6 +19,7 @@ const state = {
     showSubset: true,
     showLoading: false,
     showPanel: false,
+    minifigSold: [],
 }
 
 
@@ -66,7 +67,7 @@ const actions = {
     signOut () {
         Firebase.signOut()
     },
-
+    
     fetchMinifigs ({ commit }, { count }) {
         commit('toggleLoading', true);
         Firebase.fetchMinifigs(count)

@@ -34,7 +34,7 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin([
             { from: './index.html' },
-            { from: 'assets/img', to: 'img' }
+            /*{ from: 'assets/img', to: 'img' }*/
         ])
     ]    
 }
