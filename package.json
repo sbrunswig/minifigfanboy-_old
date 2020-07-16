@@ -15,7 +15,7 @@
     "copy-webpack-plugin": "^4.0.1",
     "d3": "^4.9.1",
     "firebase": "^3.6.7",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "postcss": "^5.2.14",
     "postcss-cli": "^3.0.0-beta",
     "postcss-custom-properties": "^5.0.2",
